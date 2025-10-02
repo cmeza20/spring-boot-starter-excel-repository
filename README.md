@@ -4,35 +4,35 @@ Excel repositories interfaces
 
 ### Wiki ##
 
-* [Get Started](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/Get-Started)
-* [Properties](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/Properties)
-* [@ExcelRepository annotation](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/@ExcelRepository)
+* [Get Started](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/Get-Started)
+* [Properties](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/Properties)
+* [@ExcelRepository annotation](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/@ExcelRepository)
 
 #### Method annotations
-* [@ToExcel annotation](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/@ToExcel-annotation)
-* [@ToModel annotation](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/@ToModel-annotation)
+* [@ToExcel annotation](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/@ToExcel-annotation)
+* [@ToModel annotation](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/@ToModel-annotation)
 ***
 
 #### Model annotations
-* [@Column annotation](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/@Column-annotation)
-* [@Sheet annotation](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/@Sheet-annotation)
-* [@Style annotation](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/@Style-annotation)
+* [@Column annotation](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/@Column-annotation)
+* [@Sheet annotation](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/@Sheet-annotation)
+* [@Style annotation](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/@Style-annotation)
 ***
 
 #### Support annotations
-* [@Error annotation](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/@Error-annotation)
-* [@Font annotation](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/@Font-annotation)
-* [@Header annotation](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/@Header-annotation)
-* [@Mapping annotation](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/@Mapping-annotation)
-* [@Table annotation](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/@Table-annotation)
+* [@Error annotation](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/@Error-annotation)
+* [@Font annotation](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/@Font-annotation)
+* [@Header annotation](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/@Header-annotation)
+* [@Mapping annotation](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/@Mapping-annotation)
+* [@Table annotation](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/@Table-annotation)
 ***
 
 #### Advanced
-* [RepositoryTemplate](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/Builders)
-* [Converters](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/Converters)
-* [Factories](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/Factories)
-* [Aware](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/Aware)
-* [PropertyResolver](https://github.com/cmeza20/spring-boot-starter-jdbc-repository/wiki/PropertyResolver)
+* [RepositoryTemplate](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/Builders)
+* [Converters](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/Converters)
+* [Factories](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/Factories)
+* [Aware](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/Aware)
+* [PropertyResolver](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/PropertyResolver)
 ***
 
 ## Maven Integration ##
