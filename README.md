@@ -1,4 +1,4 @@
-# Spring Boot Starter Excel Repository [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.cmeza/spring-boot-starter-excel-repository/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.cmeza/spring-boot-starter-excel-repository)
+# Spring Boot Starter Excel Repository [![Maven Central](https://maven-badges.sml.io/sonatype-central/com.cmeza/spring-boot-starter-excel-repository/badge.svg)](https://maven-badges.sml.io/sonatype-central/com.cmeza/spring-boot-starter-excel-repository)
 
 Excel repositories interfaces
 
