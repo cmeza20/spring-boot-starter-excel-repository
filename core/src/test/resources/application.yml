@@ -4,11 +4,12 @@ spring:
       global-sheet-configuration-bean: globalSheetConfiguration
       dsl:
         to-model:
-          validatedWithExcelErrorDsl:
-            mapping:
-              - field-name: title.id
-                header-name: title_id
-            mapper: com.cmeza.spring.excel.repository.configurations.beans.EmployeeToModelMapper
-            error:
-              file-name: validatedWithExcelError.xlsx
-              versioned: false
+          ToModelRepository:
+            validatedWithExcelErrorDsl:
+              mapping:
+                - field-name: title.id
+                  header-name: title_id
+              mapper: com.cmeza.spring.excel.repository.configurations.beans.EmployeeToModelMapper
+              error:
+                file-name: validatedWithExcelError.xlsx
+                versioned: false

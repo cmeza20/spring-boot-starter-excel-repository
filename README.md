@@ -41,7 +41,7 @@ Excel repositories interfaces
 <dependency>
     <groupId>com.cmeza</groupId>
     <artifactId>spring-boot-starter-excel-repository</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -71,14 +71,15 @@ spring:
       global-sheet-configuration-bean: globalSheetConfiguration
       dsl:
         to-model:
-          validatedWithExcelErrorDsl:
-            mapping:
-              - field-name: title.id
-                header-name: title_id
-            mapper: com.cmeza.spring.excel.repository.configurations.beans.EmployeeToModelMapper
-            error:
-              file-name: validatedWithExcelError.xlsx
-              versioned: false
+          ToModelRepository:
+              validatedWithExcelErrorDsl:
+                mapping:
+                  - field-name: title.id
+                    header-name: title_id
+                mapper: com.cmeza.spring.excel.repository.configurations.beans.EmployeeToModelMapper
+                error:
+                  file-name: validatedWithExcelError.xlsx
+                  versioned: false
 
 ```
 

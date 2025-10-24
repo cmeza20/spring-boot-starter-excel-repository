@@ -78,8 +78,8 @@ public class ToModelAnnotatedMethodProcessor<T, M> extends AbstractAnnotatedMeth
     }
 
     @Override
-    protected ToModelDsl dslLocator(ToModel annotation, DslProperties dslProperties, MethodMetadata methodMetadata) {
-        ToModelDsl toModelDsl = dslProperties.findToModelDsl(methodMetadata.getMethod().getName());
+    protected ToModelDsl dslLocator(ToModel annotation, DslProperties dslProperties, ClassMetadata classMetadata, MethodMetadata methodMetadata) {
+        ToModelDsl toModelDsl = dslProperties.findToModelDsl(classMetadata.getTargetClass().getSimpleName(), methodMetadata.getMethod().getName());
         Parser.getInstance().getParser(ModelParser.class).parseDsl(annotation, toModelDsl);
         return toModelDsl;
     }

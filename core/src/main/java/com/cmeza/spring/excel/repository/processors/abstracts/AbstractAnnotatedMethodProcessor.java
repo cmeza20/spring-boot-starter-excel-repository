@@ -43,7 +43,7 @@ public abstract class AbstractAnnotatedMethodProcessor<A extends Annotation, B e
 
     protected abstract B builder(ExcelRepository excelRepository, A annotation, ExcelRepositoryTemplate excelRepositoryTemplate, MethodMetadata methodMetadata);
 
-    protected abstract D dslLocator(A annotation, DslProperties dslProperties, MethodMetadata methodMetadata);
+    protected abstract D dslLocator(A annotation, DslProperties dslProperties, ClassMetadata classMetadata, MethodMetadata methodMetadata);
 
     protected abstract void resolvePlaceholders(D dslProperty);
 
@@ -59,7 +59,7 @@ public abstract class AbstractAnnotatedMethodProcessor<A extends Annotation, B e
         this.configure(annotation, excelRepository, classMetadata, methodMetadata);
 
         //Dsl
-        D dslProperty = this.dslLocator(annotation, dslProperties, methodMetadata);
+        D dslProperty = this.dslLocator(annotation, dslProperties, classMetadata, methodMetadata);
 
         //Resolve placeholders
         this.resolvePlaceholders(dslProperty);

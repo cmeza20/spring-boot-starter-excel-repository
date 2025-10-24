@@ -43,8 +43,8 @@ public class ToExcelAnnotatedMethodProcessor extends AbstractAnnotatedMethodProc
     }
 
     @Override
-    protected ToExcelDsl dslLocator(ToExcel annotation, DslProperties dslProperties, MethodMetadata methodMetadata) {
-        ToExcelDsl toExcelDsl = dslProperties.findToExcelDsl(methodMetadata.getMethod().getName());
+    protected ToExcelDsl dslLocator(ToExcel annotation, DslProperties dslProperties, ClassMetadata classMetadata, MethodMetadata methodMetadata) {
+        ToExcelDsl toExcelDsl = dslProperties.findToExcelDsl(classMetadata.getTargetClass().getSimpleName(), methodMetadata.getMethod().getName());
         Parser.getInstance().getParser(ExcelParser.class).parseDsl(annotation, toExcelDsl);
         return toExcelDsl;
     }

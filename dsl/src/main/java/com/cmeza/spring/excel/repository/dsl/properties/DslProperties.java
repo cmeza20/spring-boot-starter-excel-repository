@@ -17,30 +17,39 @@ public class DslProperties {
     /**
      * ToExcel DSL
      */
-    private final Map<String, ToExcelDsl> toExcel;
+    private final Map<String, Map<String, ToExcelDsl>> toExcel;
 
     /**
      * ToModel DSL
      */
-    private final Map<String, ToModelDsl> toModel;
+    private final Map<String, Map<String, ToModelDsl>> toModel;
 
-    public DslProperties(Map<String, ToExcelDsl> toExcel,
-                         Map<String, ToModelDsl> toModel) {
+    public DslProperties(Map<String, Map<String, ToExcelDsl>> toExcel,
+                         Map<String, Map<String, ToModelDsl>> toModel) {
         this.toExcel = toExcel;
         this.toModel = toModel;
     }
 
-    public ToExcelDsl findToExcelDsl(String name) {
+    public ToExcelDsl findToExcelDsl(String className, String methodName) {
         if (Objects.isNull(toExcel)) {
             return new ToExcelDsl();
         }
-        return Optional.ofNullable(toExcel.get(name)).orElse(new ToExcelDsl());
+        Map<String, ToExcelDsl> methods = toExcel.get(className);
+        if (Objects.isNull(methods)) {
+            return new ToExcelDsl();
+        }
+
+        return Optional.ofNullable(methods.get(methodName)).orElse(new ToExcelDsl());
     }
 
-    public ToModelDsl findToModelDsl(String name) {
+    public ToModelDsl findToModelDsl(String className, String methodName) {
         if (Objects.isNull(toModel)) {
             return new ToModelDsl();
         }
-        return Optional.ofNullable(toModel.get(name)).orElse(new ToModelDsl());
+        Map<String, ToModelDsl> methods = toModel.get(className);
+        if (Objects.isNull(methods)) {
+            return new ToModelDsl();
+        }
+        return Optional.ofNullable(methods.get(methodName)).orElse(new ToModelDsl());
     }
 }
