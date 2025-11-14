@@ -31,8 +31,6 @@ public interface ValidatedExtension<T> {
     ValidatedExtension<T> withErrorVersioned(boolean versioned);
 
     //Validators
-    ValidatedExtension<T> withValidator(javax.validation.Validator validator);
-
     ValidatedExtension<T> withValidator(jakarta.validation.Validator validator);
 
 }

@@ -32,7 +32,6 @@ import org.apache.poi.ss.usermodel.*;
 import org.springframework.util.Assert;
 import org.springframework.web.servlet.View;
 
-import javax.validation.Validator;
 import java.io.*;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -69,7 +68,6 @@ public class ToModelConverterImpl<T, C extends Annotation, M> implements ToModel
     private boolean columnsBuilded;
     private MapModel<T, M> mapModel;
     private ToModelMapper<T> mapper;
-    private Validator validator;
     private jakarta.validation.Validator jakartaValidator;
 
     public ToModelConverterImpl(Class<T> modelClass) {
@@ -184,12 +182,6 @@ public class ToModelConverterImpl<T, C extends Annotation, M> implements ToModel
     @Override
     public ValidatedExtension<T> withErrorVersioned(boolean versioned) {
         this.writableConfiguration.setVersioned(versioned);
-        return this;
-    }
-
-    @Override
-    public ValidatedExtension<T> withValidator(Validator validator) {
-        this.validator = validator;
         return this;
     }
 
@@ -722,7 +714,7 @@ public class ToModelConverterImpl<T, C extends Annotation, M> implements ToModel
         if (Objects.nonNull(mapModel)) {
             ModelUtils.convertTo(modelFactory, ModelMapFactory.class).withMapModel(mapModel);
         }
-        modelFactory.toValidator().withValidator(validator).withValidator(jakartaValidator);
+        modelFactory.toValidator().withValidator(jakartaValidator);
     }
 
     @Data

@@ -6,7 +6,7 @@
 
     <groupId>com.cmeza</groupId>
     <artifactId>spring-boot-starter-excel-repository-parent</artifactId>
-    <version>1.0.2</version>
+    <version>3.0.0</version>
     <packaging>pom</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
@@ -42,18 +42,17 @@
     </scm>
 
     <properties>
-        <revision>1.0.2</revision>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <revision>3.0.0</revision>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.boot.starter.version>2.7.18</spring.boot.starter.version>
+        <spring.boot.starter.version>3.5.7</spring.boot.starter.version>
         <spring.ioc.handler.version>1.0.3</spring.ioc.handler.version>
         <lombok.version>1.18.26</lombok.version>
         <apache.commons.version>3.17.0</apache.commons.version>
         <apache.commons.io.version>2.16.1</apache.commons.io.version>
         <jakarta.servlet.api.version>6.1.0</jakarta.servlet.api.version>
         <excel.streaming.reader.version>5.1.1</excel.streaming.reader.version>
-        <javax.validation.version>2.0.1.Final</javax.validation.version>
         <jakarta.validation.version>3.1.1</jakarta.validation.version>
         <maven.plugin.plugin.version>3.6.2</maven.plugin.plugin.version>
         <central.publishing.maven.plugin.version>0.9.0</central.publishing.maven.plugin.version>
@@ -124,17 +123,9 @@
             </dependency>
 
             <dependency>
-                <groupId>javax.validation</groupId>
-                <artifactId>validation-api</artifactId>
-                <version>${javax.validation.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
                 <groupId>jakarta.validation</groupId>
                 <artifactId>jakarta.validation-api</artifactId>
                 <version>${jakarta.validation.version}</version>
-                <scope>provided</scope>
             </dependency>
 
             <!-- TEST -->
@@ -294,8 +285,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven.compiler.plugin.version}</version>
                     <configuration>
-                        <source>11</source>
-                        <target>11</target>
+                        <source>17</source>
+                        <target>17</target>
                         <forceJavacCompilerUse>true</forceJavacCompilerUse>
                         <compilerArgs>-parameters</compilerArgs>
                     </configuration>

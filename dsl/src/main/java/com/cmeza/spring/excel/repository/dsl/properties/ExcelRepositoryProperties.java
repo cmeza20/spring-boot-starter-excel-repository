@@ -1,16 +1,14 @@
 package com.cmeza.spring.excel.repository.dsl.properties;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConstructorBinding;
+import org.springframework.boot.context.properties.bind.ConstructorBinding;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.NotNull;
-
 @Getter
 @Validated
-@ConstructorBinding
 @ConfigurationProperties("spring.excel.repository")
 public class ExcelRepositoryProperties {
     public static final String EXCEL_DEFAULT_FOLDER = "classpath:/excel/**";
@@ -56,6 +54,7 @@ public class ExcelRepositoryProperties {
      */
     private final String[] globalStyleConfigurationBean;
 
+    @ConstructorBinding
     public ExcelRepositoryProperties(
             @DefaultValue(EXCEL_DEFAULT_FOLDER) String excelFolder,
             @DefaultValue("false") boolean loggable,
