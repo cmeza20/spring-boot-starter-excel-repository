@@ -35,17 +35,21 @@ Excel repositories interfaces
 * [PropertyResolver](https://github.com/cmeza20/spring-boot-starter-excel-repository/wiki/PropertyResolver)
 ***
 
-## Maven Integration ##
+## Dependencies ##
+* Java 17 or higher
+* Spring boot 3.0.0 or higher
 
+
+## Maven Integration ##
 ```xml
 <dependency>
     <groupId>com.cmeza</groupId>
     <artifactId>spring-boot-starter-excel-repository</artifactId>
-    <version>1.0.2</version>
+    <version>3.0.0</version>
 </dependency>
 ```
 
-## Minimal dependencies ##
+## Minimal configuration ##
 - @EnableExcelRepositories annotation
 
 ```java
@@ -68,6 +72,7 @@ public class SpringBootStarterExcelRepositoryTestApplication {
 spring:
   excel:
     repository:
+      excelFolder: classpath:/excel/**
       global-sheet-configuration-bean: globalSheetConfiguration
       dsl:
         to-model:

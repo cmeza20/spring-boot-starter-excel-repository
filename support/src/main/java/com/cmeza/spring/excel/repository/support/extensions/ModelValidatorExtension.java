@@ -13,8 +13,6 @@ public interface ModelValidatorExtension<T> extends ModelFactory<T> {
 
     ModelValidatorExtension<T> withSaveSuccessful(boolean saveSuccessful);
 
-    ModelValidatorExtension<T> withValidator(javax.validation.Validator validator);
-
     ModelValidatorExtension<T> withValidator(jakarta.validation.Validator validator);
 
     List<T> getSuccessful();

@@ -16,7 +16,6 @@ import java.util.Set;
 public class ModelValidator {
 
     private jakarta.validation.Validator jakartaValidator;
-    private javax.validation.Validator javaxValidator;
     private boolean initialized = false;
 
     private ModelValidatorFactory factory;
@@ -39,23 +38,17 @@ public class ModelValidator {
         }
     }
 
-    private ModelValidator(jakarta.validation.Validator jakartaValidator, javax.validation.Validator javaxValidator) {
+    private ModelValidator(jakarta.validation.Validator jakartaValidator) {
         this.jakartaValidator = jakartaValidator;
-        this.javaxValidator = javaxValidator;
         this.factory = new ModelValidatorFactory();
     }
 
     public static ModelValidator getInstance() {
-        return new ModelValidator(null, null);
+        return new ModelValidator(null);
     }
 
     public ModelValidator withValidator(jakarta.validation.Validator jakartaValidator) {
         this.jakartaValidator = jakartaValidator;
-        return this;
-    }
-
-    public ModelValidator withValidator(javax.validation.Validator javaxValidator) {
-        this.javaxValidator = javaxValidator;
         return this;
     }
 
@@ -69,9 +62,6 @@ public class ModelValidator {
         if (Objects.nonNull(jakartaValidator)) {
             results.addAll(factory.makeJakartaConstraintViolation(jakartaValidator.validateValue(modelClass, attributeName, value)));
         }
-        if (Objects.nonNull(javaxValidator)) {
-            results.addAll(factory.makeJavaxConstraintViolation(javaxValidator.validateValue(modelClass, attributeName, value)));
-        }
         return results;
     }
 
@@ -80,10 +70,6 @@ public class ModelValidator {
             if (Objects.isNull(jakartaValidator) && isJakartaValidator) {
                 try (jakarta.validation.ValidatorFactory validatorFactory = jakarta.validation.Validation.buildDefaultValidatorFactory()) {
                     jakartaValidator = validatorFactory.getValidator();
-                }
-            } else if (Objects.isNull(javaxValidator) && !isJakartaValidator) {
-                try (javax.validation.ValidatorFactory validatorFactory = javax.validation.Validation.buildDefaultValidatorFactory()) {
-                    javaxValidator = validatorFactory.getValidator();
                 }
             }
             this.initialized = true;

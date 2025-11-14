@@ -1,26 +1,25 @@
 package com.cmeza.spring.excel.repository.factories.model;
 
-import com.cmeza.spring.excel.repository.support.factories.model.ItemFactory;
-import com.cmeza.spring.excel.repository.support.factories.model.ModelFactory;
-import com.cmeza.spring.excel.repository.support.factories.model.ModelMapFactory;
+import com.cmeza.spring.excel.repository.mappers.DefaultToModelMapper;
+import com.cmeza.spring.excel.repository.parsers.values.*;
+import com.cmeza.spring.excel.repository.support.exceptions.ModelException;
 import com.cmeza.spring.excel.repository.support.exceptions.ModelValidatorException;
 import com.cmeza.spring.excel.repository.support.extensions.ItemErrorExtension;
 import com.cmeza.spring.excel.repository.support.extensions.ItemValueExtension;
 import com.cmeza.spring.excel.repository.support.extensions.ModelValidatorExtension;
+import com.cmeza.spring.excel.repository.support.factories.model.ItemFactory;
+import com.cmeza.spring.excel.repository.support.factories.model.ModelFactory;
+import com.cmeza.spring.excel.repository.support.factories.model.ModelMapFactory;
 import com.cmeza.spring.excel.repository.support.mappers.ToModelMapper;
 import com.cmeza.spring.excel.repository.support.maps.MapModel;
-import com.cmeza.spring.excel.repository.support.exceptions.ModelException;
-import com.cmeza.spring.excel.repository.mappers.DefaultToModelMapper;
-import com.cmeza.spring.excel.repository.parsers.values.*;
 import com.cmeza.spring.excel.repository.support.members.EntityMember;
 import com.cmeza.spring.excel.repository.support.members.ValueObject;
 import com.cmeza.spring.excel.repository.support.parsers.values.ValueParser;
-import com.cmeza.spring.excel.repository.utils.ModelUtils;
 import com.cmeza.spring.excel.repository.support.validations.ModelConstraintViolation;
+import com.cmeza.spring.excel.repository.utils.ModelUtils;
 import com.cmeza.spring.excel.repository.validations.ModelValidator;
 import org.springframework.util.Assert;
 
-import javax.validation.Validator;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -84,12 +83,6 @@ public class ModelFactoryImpl<T, M> implements ModelMapFactory<T, M>, ModelValid
     @Override
     public ModelValidatorExtension<T> withSaveSuccessful(boolean saveSuccessful) {
         this.saveSuccessful = saveSuccessful;
-        return this;
-    }
-
-    @Override
-    public ModelValidatorExtension<T> withValidator(Validator validator) {
-        this.modelValidator.withValidator(validator);
         return this;
     }
 
@@ -291,7 +284,7 @@ public class ModelFactoryImpl<T, M> implements ModelMapFactory<T, M>, ModelValid
             mapper.mapFactoryValue(entityMember, modelAttribute, value, classCast, valueParser);
 
             if (entityMember.isValidatable(modelAttribute)) {
-               return modelValidator.validateValue(modelClass, modelAttribute, entityMember.getValue(modelAttribute));
+                return modelValidator.validateValue(modelClass, modelAttribute, entityMember.getValue(modelAttribute));
             }
         }
         return Collections.emptySet();
@@ -316,7 +309,7 @@ public class ModelFactoryImpl<T, M> implements ModelMapFactory<T, M>, ModelValid
 
     private void buildCatch(Exception e, ItemErrorExtension<T> itemErrorExtension) {
         if (e instanceof ModelValidatorException) {
-            ((ModelValidatorException)e).getExceptions().forEach(itemErrorExtension::withError);
+            ((ModelValidatorException) e).getExceptions().forEach(itemErrorExtension::withError);
         } else {
             itemErrorExtension.withError(e);
         }
