@@ -1,4 +1,4 @@
-package com.cmeza.spring.excel.repository.configurations;
+package com.cmeza.spring.excel.repository.dsl.properties;
 
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -6,11 +6,21 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.NotNull;
+
 @Getter
 @Validated
 @ConstructorBinding
 @ConfigurationProperties("spring.excel.repository")
 public class ExcelRepositoryProperties {
+    public static final String EXCEL_DEFAULT_FOLDER = "classpath:/excel/**";
+
+    /**
+     * Folder where the queries and properties are stored (String)
+     */
+    @NotNull
+    private final String excelFolder;
+
     /**
      * Global track logger (Boolean)
      */
@@ -47,6 +57,7 @@ public class ExcelRepositoryProperties {
     private final String[] globalStyleConfigurationBean;
 
     public ExcelRepositoryProperties(
+            @DefaultValue(EXCEL_DEFAULT_FOLDER) String excelFolder,
             @DefaultValue("false") boolean loggable,
             @DefaultValue("false") boolean onlyDeclaredMethods,
             @DefaultValue("false") boolean onlyMethodDeclaredAnnotations,
@@ -54,6 +65,7 @@ public class ExcelRepositoryProperties {
             String globalExcelConfigurationBean,
             String globalSheetConfigurationBean,
             String[] globalStyleConfigurationBean) {
+        this.excelFolder = excelFolder;
         this.loggable = loggable;
         this.onlyDeclaredMethods = onlyDeclaredMethods;
         this.onlyMethodDeclaredAnnotations = onlyMethodDeclaredAnnotations;

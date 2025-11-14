@@ -3,7 +3,7 @@ package com.cmeza.spring.excel.repository.builders.impl;
 import com.cmeza.spring.excel.repository.builders.ExtraBuilder;
 import com.cmeza.spring.excel.repository.builders.ModelToExcelBuilder;
 import com.cmeza.spring.excel.repository.builders.abstracts.AbstractBuilderExcel;
-import com.cmeza.spring.excel.repository.configurations.ExcelRepositoryProperties;
+import com.cmeza.spring.excel.repository.dsl.properties.ExcelRepositoryProperties;
 import com.cmeza.spring.excel.repository.contracts.ExcelContract;
 import com.cmeza.spring.excel.repository.converters.Converter;
 import com.cmeza.spring.excel.repository.support.converters.excel.ExcelSheetConverter;

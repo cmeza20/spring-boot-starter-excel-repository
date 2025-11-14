@@ -1,5 +1,6 @@
 package com.cmeza.spring.excel.repository.configurations;
 
+import com.cmeza.spring.excel.repository.dsl.properties.ExcelRepositoryProperties;
 import com.cmeza.spring.excel.repository.interceptors.ExcelPropertyResolverInterceptor;
 import com.cmeza.spring.excel.repository.interceptors.ExcelRepositoryTemplateInterceptor;
 import com.cmeza.spring.excel.repository.support.annotations.ExcelRepository;

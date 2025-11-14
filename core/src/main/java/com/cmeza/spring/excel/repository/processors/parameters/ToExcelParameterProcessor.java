@@ -8,7 +8,7 @@ import com.cmeza.spring.excel.repository.support.annotations.model.Sheet;
 import com.cmeza.spring.excel.repository.support.annotations.model.Style;
 import com.cmeza.spring.excel.repository.support.annotations.model.Styles;
 import com.cmeza.spring.excel.repository.builders.ModelToExcelBuilder;
-import com.cmeza.spring.excel.repository.configurations.ExcelRepositoryProperties;
+import com.cmeza.spring.excel.repository.dsl.properties.ExcelRepositoryProperties;
 import com.cmeza.spring.excel.repository.contracts.ExcelContract;
 import com.cmeza.spring.excel.repository.support.converters.excel.ExcelSheetConverter;
 import com.cmeza.spring.excel.repository.support.configurations.excel.ExcelConfiguration;

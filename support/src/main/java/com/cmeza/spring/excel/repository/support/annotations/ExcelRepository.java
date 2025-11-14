@@ -10,4 +10,6 @@ import java.lang.annotation.*;
 @Component
 public @interface ExcelRepository {
     boolean loggable() default false;
+
+    String dslName() default "";
 }

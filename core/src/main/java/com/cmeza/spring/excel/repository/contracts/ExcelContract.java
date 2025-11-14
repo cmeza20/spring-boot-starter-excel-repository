@@ -3,7 +3,7 @@ package com.cmeza.spring.excel.repository.contracts;
 import com.cmeza.spring.excel.repository.support.annotations.ExcelRepository;
 import com.cmeza.spring.excel.repository.builders.ExtraBuilder;
 import com.cmeza.spring.excel.repository.support.builders.ExcelGenericBuilder;
-import com.cmeza.spring.excel.repository.configurations.ExcelRepositoryProperties;
+import com.cmeza.spring.excel.repository.dsl.properties.ExcelRepositoryProperties;
 import com.cmeza.spring.excel.repository.support.exceptions.ContractException;
 import com.cmeza.spring.excel.repository.repositories.definitions.ParameterDefinition;
 import com.cmeza.spring.excel.repository.repositories.configurations.SimpleExcelConfigurationImpl;

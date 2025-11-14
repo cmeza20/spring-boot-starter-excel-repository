@@ -40,8 +40,6 @@ public class ExcelUtils {
     private static final double MULTIPLE_FOR_SHORT_QUANTITY = 1.5;
     private static final double MULTIPLE_FOR_LONG_QUANTITY = 1.14388;
 
-
-
     public String generateAlias() {
         return generateAlias(null);
     }

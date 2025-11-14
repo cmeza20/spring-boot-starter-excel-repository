@@ -52,9 +52,6 @@ import java.util.stream.Collectors;
 public class ToModelConverterImpl<T, C extends Annotation, M> implements ToModelMapConverter<T, M>, ValidatedExtension<T> {
 
     private static final Parser PARSER = Parser.getInstance();
-//    private final ModelFactory<T> modelFactory;
-//    private final ModelValidatorExtension<T> modelValidatorExtension;
-//    private final ModelMapFactory<T, M> modelMapFactory;
     private final ModelConfiguration<T> modelConfiguration;
 
     private final Map<Class<C>, BiConsumer<C, ModelConfiguration<T>>> modelAnnotations = new HashMap<>();

@@ -15,6 +15,15 @@
 ### Added
 - DSL with class name
 
+## [1.0.2] - 2025-11-14
+### Added
+- DSL name in @ExcelRepository annotation
+- Excel folder path in properties configuration
+- Add configuration processor in DSL module
+### Fix
+- Custom message in property validation
+
 
 [1.0.0]: https://github.com/cmeza20/spring-boot-starter-jdbc-repository/tree/1.0.0
 [1.0.1]: https://github.com/cmeza20/spring-boot-starter-jdbc-repository/tree/1.0.1
+[1.0.2]: https://github.com/cmeza20/spring-boot-starter-jdbc-repository/tree/1.0.2

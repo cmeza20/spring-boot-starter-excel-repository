@@ -3,7 +3,7 @@ package com.cmeza.spring.excel.repository.templates;
 import com.cmeza.spring.excel.repository.ExcelRepositoryOperations;
 import com.cmeza.spring.excel.repository.builders.abstracts.AbstractBuilderExcel;
 import com.cmeza.spring.excel.repository.dialects.DefaultDialect;
-import com.cmeza.spring.excel.repository.configurations.ExcelRepositoryProperties;
+import com.cmeza.spring.excel.repository.dsl.properties.ExcelRepositoryProperties;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;

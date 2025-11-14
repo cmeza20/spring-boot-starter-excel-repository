@@ -78,17 +78,17 @@ public class ToModelAnnotatedMethodProcessor<T, M> extends AbstractAnnotatedMeth
     }
 
     @Override
-    protected ToModelDsl dslLocator(ToModel annotation, DslProperties dslProperties, ClassMetadata classMetadata, MethodMetadata methodMetadata) {
-        ToModelDsl toModelDsl = dslProperties.findToModelDsl(classMetadata.getTargetClass().getSimpleName(), methodMetadata.getMethod().getName());
+    protected ToModelDsl dslLocator(ToModel annotation, DslProperties dslProperties, ClassMetadata classMetadata, MethodMetadata methodMetadata, String dslName) {
+        ToModelDsl toModelDsl = dslProperties.findToModelDsl(dslName, methodMetadata.getMethod().getName());
         Parser.getInstance().getParser(ModelParser.class).parseDsl(annotation, toModelDsl);
         return toModelDsl;
     }
 
     @Override
-    protected void resolvePlaceholders(ToModelDsl dslProperty) {
+    protected void resolvePlaceholders(ToModelDsl dslProperty, ClassMetadata classMetadata, MethodMetadata methodMetadata) {
         ErrorDsl errorDsl = dslProperty.getError();
         if (StringUtils.isNotEmpty(errorDsl.getFolder())) {
-            errorDsl.setFolder(propertiesResolver.resolveRequiredPlaceholders(errorDsl.getFolder()));
+            errorDsl.setFolder(propertiesResolver.resolveRequiredPlaceholders(errorDsl.getFolder(), methodMetadata.getConfigKey() + " - The 'folder' attribute is required in the @ToModel.Error annotation"));
         }
     }
 
