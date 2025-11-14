@@ -43,16 +43,16 @@ public class ToExcelAnnotatedMethodProcessor extends AbstractAnnotatedMethodProc
     }
 
     @Override
-    protected ToExcelDsl dslLocator(ToExcel annotation, DslProperties dslProperties, ClassMetadata classMetadata, MethodMetadata methodMetadata) {
-        ToExcelDsl toExcelDsl = dslProperties.findToExcelDsl(classMetadata.getTargetClass().getSimpleName(), methodMetadata.getMethod().getName());
+    protected ToExcelDsl dslLocator(ToExcel annotation, DslProperties dslProperties, ClassMetadata classMetadata, MethodMetadata methodMetadata, String dslName) {
+        ToExcelDsl toExcelDsl = dslProperties.findToExcelDsl(dslName, methodMetadata.getMethod().getName());
         Parser.getInstance().getParser(ExcelParser.class).parseDsl(annotation, toExcelDsl);
         return toExcelDsl;
     }
 
     @Override
-    protected void resolvePlaceholders(ToExcelDsl dslProperty) {
+    protected void resolvePlaceholders(ToExcelDsl dslProperty, ClassMetadata classMetadata, MethodMetadata methodMetadata) {
         if (StringUtils.isNotEmpty(dslProperty.getPath())) {
-            dslProperty.setPath(propertiesResolver.resolveRequiredPlaceholders(dslProperty.getPath()));
+            dslProperty.setPath(propertiesResolver.resolveRequiredPlaceholders(dslProperty.getPath(), methodMetadata.getConfigKey() + " - The 'path' attribute is required in the @ToExcel annotation"));
         }
     }
 

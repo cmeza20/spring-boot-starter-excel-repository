@@ -1,7 +1,7 @@
 package com.cmeza.spring.excel.repository.builders.abstracts;
 
 import com.cmeza.spring.excel.repository.support.builders.ExcelGenericBuilder;
-import com.cmeza.spring.excel.repository.configurations.ExcelRepositoryProperties;
+import com.cmeza.spring.excel.repository.dsl.properties.ExcelRepositoryProperties;
 import com.cmeza.spring.excel.repository.support.exceptions.ExcelException;
 import com.cmeza.spring.excel.repository.templates.ExcelRepositoryTemplate;
 import com.cmeza.spring.excel.repository.utils.HeaderLog;

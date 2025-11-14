@@ -16,6 +16,7 @@ import com.cmeza.spring.ioc.handler.metadata.ClassMetadata;
 import com.cmeza.spring.ioc.handler.metadata.MethodMetadata;
 import com.cmeza.spring.ioc.handler.processors.AnnotatedMethodProcessor;
 import com.cmeza.spring.ioc.handler.utils.IocUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -43,9 +44,9 @@ public abstract class AbstractAnnotatedMethodProcessor<A extends Annotation, B e
 
     protected abstract B builder(ExcelRepository excelRepository, A annotation, ExcelRepositoryTemplate excelRepositoryTemplate, MethodMetadata methodMetadata);
 
-    protected abstract D dslLocator(A annotation, DslProperties dslProperties, ClassMetadata classMetadata, MethodMetadata methodMetadata);
+    protected abstract D dslLocator(A annotation, DslProperties dslProperties, ClassMetadata classMetadata, MethodMetadata methodMetadata, String dslName);
 
-    protected abstract void resolvePlaceholders(D dslProperty);
+    protected abstract void resolvePlaceholders(D dslProperty, ClassMetadata classMetadata, MethodMetadata methodMetadata);
 
     protected abstract void updateValues(Map<String, Object> values, D dslProperty);
 
@@ -58,11 +59,17 @@ public abstract class AbstractAnnotatedMethodProcessor<A extends Annotation, B e
         //Configure
         this.configure(annotation, excelRepository, classMetadata, methodMetadata);
 
+        //DslName
+        String dslClassName = classMetadata.getTargetClass().getSimpleName();
+        if (StringUtils.isNotEmpty(excelRepository.dslName())) {
+            dslClassName = excelRepository.dslName();
+        }
+
         //Dsl
-        D dslProperty = this.dslLocator(annotation, dslProperties, classMetadata, methodMetadata);
+        D dslProperty = this.dslLocator(annotation, dslProperties, classMetadata, methodMetadata, dslClassName);
 
         //Resolve placeholders
-        this.resolvePlaceholders(dslProperty);
+        this.resolvePlaceholders(dslProperty, classMetadata, methodMetadata);
 
         //Map Values
         Map<String, Object> mapValues = this.bindMapValues(excelRepository, dslProperty, methodMetadata);

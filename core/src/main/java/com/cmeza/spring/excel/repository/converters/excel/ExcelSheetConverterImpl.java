@@ -182,8 +182,6 @@ public class ExcelSheetConverterImpl<C extends Annotation> extends ParentConvert
             log.trace("Found {} class annotations", this.sheetAnnotations.size());
             log.trace("Found {} field annotations", this.fieldAnnotations.size());
 
-//            boolean hasAnnotations = ReflectionUtils.hasFieldAnnotation(classData, fieldAnnotations);
-
             ModelUtils.configureSimpleConsumers(this.sheetConsumers, sheetConfiguration);
             ModelUtils.configureAnnotations(classData, this.sheetAnnotations, sheetConfiguration);
 
@@ -235,7 +233,6 @@ public class ExcelSheetConverterImpl<C extends Annotation> extends ParentConvert
             }
 
             processBuilder.setRow(row);
-//            processBuilder.setHasAnnotations(hasAnnotations);
         }
     }
 

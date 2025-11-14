@@ -41,7 +41,7 @@ Excel repositories interfaces
 <dependency>
     <groupId>com.cmeza</groupId>
     <artifactId>spring-boot-starter-excel-repository</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
